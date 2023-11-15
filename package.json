@@ -1,0 +1,16 @@
+{
+  "name": "goblog",
+  "version": "1.0.0",
+  "description": "## Todolist",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build -o business/frontend/assets/static/css/tailwind.css",
+    "watch": "tailwindcss build -o pkg/frontend/assets/static/css/tailwind.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

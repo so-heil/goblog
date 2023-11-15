@@ -1,0 +1,4 @@
+node_modules
+.idea
+business/frontend/assets/static
+tmp
