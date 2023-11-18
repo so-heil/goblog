@@ -1,0 +1,19 @@
+package header
+
+import "strings"
+
+templ Header(pageName string) {
+    <header class="flex justify-between items-center w-full py-4 md:py-8">
+        <div class="flex items-center text-white">
+        <a class="opacity-80 hover:opacity-100" href="/">
+            <img src="/static/images/pilot-bust.svg" class="w-16 h-10 opacity-70"/>
+        </a>
+        <div class="ml-10">{strings.ToUpper(pageName)}</div>
+        </div>
+        <div class="flex align-center h-min space-x-6 md:space-x-10 ">
+            <a class="opacity-90 hover:opacity-100" href="/about">ABOUT</a>
+            <a class="opacity-90 hover:opacity-100" href="/blog">BLOG</a>
+            <a class="opacity-90 hover:opacity-100" href="/cv">CV</a>
+        </div>
+    </header>
+}

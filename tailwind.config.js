@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./business/templates/**/*.templ"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'mono': ['JetBrains Mono', 'monospace'],
+      },
+      colors: {
+        go: "#00ACD7",
+      }
+    },
   },
   plugins: [],
 };

@@ -1,0 +1,44 @@
+package container
+
+import (
+    "github.com/so-heil/goblog/business/templates/components/header"
+    "github.com/so-heil/goblog/business/templates/components/contact"
+)
+
+
+templ Container(pageName string) {
+	<html>
+	<head>
+		<link rel="stylesheet" href="/static/css/tailwind.css" />
+		<link rel="stylesheet" href="/static/fonts/jetbrains.css" />
+	</head>
+	<body class="gradbg text-gray-300 font-mono">
+        <div class="px-6 md:px-12 flex flex-col">
+            @header.Header(pageName)
+            <main class="flex-1 min-h-[calc(100vh-105px)] flex flex-col">
+                { children... }
+            </main>
+            @contact.Contact()
+        </div>
+	</body>
+	<style>
+        .gradbg {
+            background: linear-gradient(-45deg, #08172E, #000000, #15253F);
+            background-size: 400% 400%;
+            animation: gradient 35s ease infinite;
+            height: 100vh;
+        }
+        @keyframes gradient {
+        	0% {
+        		background-position: 0% 50%;
+        	}
+        	50% {
+        		background-position: 100% 50%;
+        	}
+        	100% {
+        		background-position: 0% 50%;
+        	}
+        }
+	</style>
+	</html>
+}

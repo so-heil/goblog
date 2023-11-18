@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"github.com/a-h/templ"
+	"github.com/so-heil/goblog/business/templates/pages/cv"
+	"github.com/so-heil/goblog/business/templates/pages/home"
 	"log"
 	"net/http"
 
 	"github.com/so-heil/goblog/business/frontend/assets"
-	"github.com/so-heil/goblog/business/templates/pages/hello"
 )
 
 func main() {
@@ -17,9 +18,10 @@ func main() {
 }
 
 func run() error {
-	component := hello.Hello("World!")
+	component := home.Home("about")
 
 	http.Handle("/", templ.Handler(component))
+	http.Handle("/cv", templ.Handler(cv.CV("cv")))
 	http.Handle("/static/", assets.StaticHandler)
 
 	fmt.Println("Starting web server on :3000")
