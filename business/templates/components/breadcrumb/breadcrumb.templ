@@ -1,0 +1,14 @@
+package breadcrumb
+
+templ Breadcrumb(links []Link) {
+    <ul class="flex items-center space-x-3">
+        for i, link := range links {
+            <li>
+                <a href={templ.SafeURL(link.Href)}>{link.Title}</a>
+            </li>
+            if i != len(links) - 1 {
+                <span>/</span>
+            }
+        }
+    </ul>
+}

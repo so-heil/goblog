@@ -23,7 +23,7 @@ func Contact() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"absolute bottom-20 left-[4.2rem] flex flex-col items-center gap-6\"><a href=\"\"><img src=\"/static/images/github-mark-white.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a> <a href=\"\"><img src=\"/static/images/linkedin.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a> <a href=\"\"><img src=\"/static/images/telegram.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"fixed bottom-0 left-[4.2rem] flex flex-col items-center gap-6\"><a href=\"\"><img src=\"/static/images/github-mark-white.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a> <a href=\"\"><img src=\"/static/images/linkedin.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a> <a href=\"\"><img src=\"/static/images/telegram.svg\" class=\"w-6 h-6 opacity-40 hover:opacity-100 transition-all\"></a><div class=\"w-[1px] h-[32px] bg-white opacity-40\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

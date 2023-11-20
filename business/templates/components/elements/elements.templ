@@ -1,0 +1,63 @@
+package elements
+
+import "fmt"
+
+templ Heading1(content string) {
+    <h1>{content}</h1>
+}
+
+templ Heading2(content string) {
+    <h2>{content}</h2>
+}
+
+templ Heading3(content string) {
+    <h3>{content}</h3>
+}
+
+templ Quote(content string) {
+    <blockquote>{content}</blockquote>
+}
+
+templ Code(content string, language string) {
+    <pre class="bg-[#161c24]">
+        <code class={fmt.Sprintf("language-%s", language)}>
+            {content}
+        </code>
+    </pre>
+}
+
+templ ListItem(content string) {
+    <li>{content}</li>
+}
+
+templ Image(src string, alt string) {
+    <img src={src} alt={alt} />
+}
+
+templ Paragraph(ps []P) {
+    <p>
+        for _, p := range ps {
+            if p.Link != nil {
+                <a href={templ.SafeURL(*p.Link)}>{p.Content}</a>
+            }
+            if p.Bold {
+                <strong>{p.Content}</strong>
+            }
+            if p.Italic {
+                <i>{p.Content}</i>
+            }
+            if p.Code {
+                <code>{p.Content}</code>
+            }
+            {p.Content}
+        }
+    </p>
+}
+
+templ Section(id string, children []templ.Component) {
+    <section id={id}>
+        for _, child := range children {
+            @child
+        }
+    </section>
+}

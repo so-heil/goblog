@@ -5,11 +5,14 @@ module.exports = {
     extend: {
       fontFamily: {
         'mono': ['JetBrains Mono', 'monospace'],
+        'rubik': ['Rubik', 'monospace'],
       },
       colors: {
         go: "#00ACD7",
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

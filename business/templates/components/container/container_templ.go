@@ -11,11 +11,34 @@ import "io"
 import "bytes"
 
 import (
+	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
 	"github.com/so-heil/goblog/business/templates/components/contact"
 	"github.com/so-heil/goblog/business/templates/components/header"
 )
 
-func Container(pageName string) templ.Component {
+func traceTOC() templ.ComponentScript {
+	return templ.ComponentScript{
+		Name: `__templ_traceTOC_4526`,
+		Function: `function __templ_traceTOC_4526(){const observer = new IntersectionObserver(entries => {
+         entries.forEach(entry => {
+             const id = entry.target.getAttribute('id');
+             if (entry.intersectionRatio > 0) {
+                 document.querySelector(` + "`" + `#toc > ul > li > a[href="#${id}"]` + "`" + `).parentElement.classList.add('active-toc-item');
+             } else {
+                 document.querySelector(` + "`" + `#toc > ul > li > a[href="#${id}"]` + "`" + `).parentElement.classList.remove('active-toc-item');
+             }
+         });
+    });
+
+    // Track all sections that have an ` + "`" + `id` + "`" + ` applied
+    document.querySelectorAll('section[id]').forEach((section) => {
+         observer.observe(section);
+    });}`,
+		Call: templ.SafeScript(`__templ_traceTOC_4526`),
+	}
+}
+
+func Container(links []breadcrumb.Link) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -28,11 +51,28 @@ func Container(pageName string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><link rel=\"stylesheet\" href=\"/static/css/tailwind.css\"><link rel=\"stylesheet\" href=\"/static/fonts/jetbrains.css\"></head><body class=\"gradbg text-gray-300 font-mono\"><div class=\"px-6 md:px-12 flex flex-col\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><link rel=\"stylesheet\" href=\"/static/css/tailwind.css\"><link rel=\"stylesheet\" href=\"/static/fonts/fonts.css\"><link rel=\"stylesheet\" href=\"/static/prism/prism.css\"><script src=\"/static/prism/prism.js\"></script></head>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = header.Header(pageName).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, traceTOC())
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"gradbg text-gray-300 font-mono\" onload=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var2 templ.ComponentScript = traceTOC()
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var2.Call)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><div class=\"px-6 md:px-12 flex flex-col\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = header.Header(links).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -56,7 +96,7 @@ func Container(pageName string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Var2 := `
+		templ_7745c5c3_Var3 := `
         .gradbg {
             background: linear-gradient(-45deg, #08172E, #000000, #15253F);
             background-size: 400% 400%;
@@ -74,8 +114,11 @@ func Container(pageName string) templ.Component {
         		background-position: 0% 50%;
         	}
         }
+        html {
+        	scroll-behavior: smooth;
+        }
 	`
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var2)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var3)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

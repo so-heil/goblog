@@ -1,6 +1,10 @@
 package home
 
-import "github.com/so-heil/goblog/business/templates/components/container"
+import (
+    "github.com/so-heil/goblog/business/templates/components/container"
+    "github.com/so-heil/goblog/business/templates/components/breadcrumb"
+
+)
 
 templ goIcon() {
     <div>
@@ -39,8 +43,8 @@ templ goIcon() {
     </div>
 }
 
-templ Home(pageName string) {
-   @container.Container(pageName) {
+templ Home(links []breadcrumb.Link) {
+   @container.Container(links) {
         <div class="flex-1 flex flex-col justify-center items-center">
             <div class="pt-0 w-[600px] relative">
                 @goIcon()

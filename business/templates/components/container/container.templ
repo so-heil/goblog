@@ -3,18 +3,38 @@ package container
 import (
     "github.com/so-heil/goblog/business/templates/components/header"
     "github.com/so-heil/goblog/business/templates/components/contact"
+	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
 )
 
+script traceTOC() {
+    const observer = new IntersectionObserver(entries => {
+         entries.forEach(entry => {
+             const id = entry.target.getAttribute('id');
+             if (entry.intersectionRatio > 0) {
+                 document.querySelector(`#toc > ul > li > a[href="#${id}"]`).parentElement.classList.add('active-toc-item');
+             } else {
+                 document.querySelector(`#toc > ul > li > a[href="#${id}"]`).parentElement.classList.remove('active-toc-item');
+             }
+         });
+    });
 
-templ Container(pageName string) {
+    // Track all sections that have an `id` applied
+    document.querySelectorAll('section[id]').forEach((section) => {
+         observer.observe(section);
+    });
+}
+
+templ Container(links []breadcrumb.Link) {
 	<html>
 	<head>
 		<link rel="stylesheet" href="/static/css/tailwind.css" />
-		<link rel="stylesheet" href="/static/fonts/jetbrains.css" />
+		<link rel="stylesheet" href="/static/fonts/fonts.css" />
+		<link rel="stylesheet" href="/static/prism/prism.css" />
+		<script src="/static/prism/prism.js" />
 	</head>
-	<body class="gradbg text-gray-300 font-mono">
+	<body class="gradbg text-gray-300 font-mono" onload={traceTOC()}>
         <div class="px-6 md:px-12 flex flex-col">
-            @header.Header(pageName)
+            @header.Header(links)
             <main class="flex-1 min-h-[calc(100vh-105px)] flex flex-col">
                 { children... }
             </main>
@@ -38,6 +58,9 @@ templ Container(pageName string) {
         	100% {
         		background-position: 0% 50%;
         	}
+        }
+        html {
+        	scroll-behavior: smooth;
         }
 	</style>
 	</html>

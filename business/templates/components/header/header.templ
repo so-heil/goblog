@@ -1,19 +1,25 @@
 package header
 
-import "strings"
+import (
+	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
+)
 
-templ Header(pageName string) {
-    <header class="flex justify-between items-center w-full py-4 md:py-8">
+templ Header(links []breadcrumb.Link) {
+    <header class="flex justify-between items-center w-full py-4 md:py-8 sticky top-0 backdrop-blur z-40">
         <div class="flex items-center text-white">
-        <a class="opacity-80 hover:opacity-100" href="/">
-            <img src="/static/images/pilot-bust.svg" class="w-16 h-10 opacity-70"/>
-        </a>
-        <div class="ml-10">{strings.ToUpper(pageName)}</div>
+            <a class="opacity-80 hover:opacity-100" href="/">
+                <img src="/static/images/pilot-bust.svg" class="w-16 h-10 opacity-70"/>
+            </a>
+            <div class="ml-10">
+                @breadcrumb.Breadcrumb(links)
+            </div>
         </div>
         <div class="flex align-center h-min space-x-6 md:space-x-10 ">
-            <a class="opacity-90 hover:opacity-100" href="/about">ABOUT</a>
-            <a class="opacity-90 hover:opacity-100" href="/blog">BLOG</a>
-            <a class="opacity-90 hover:opacity-100" href="/cv">CV</a>
+            for _, nav := range navs {
+                if !(len(links) > 0 && nav.Href == links[len(links) - 1].Href) {
+                    <a class="opacity-80 transition-all hover:opacity-100" href={templ.SafeURL(nav.Href)}>{nav.Title}</a>
+                }
+            }
         </div>
     </header>
 }
