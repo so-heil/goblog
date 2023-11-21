@@ -8,7 +8,7 @@ import (
 	"github.com/so-heil/goblog/business/articles"
 )
 
-templ BlogArticle(links []breadcrumb.Link, article articles.Article, content []templ.Component, headings []string) {
+templ Article(links []breadcrumb.Link, article articles.Article, content []templ.Component, headings []string) {
     @container.Container(links) {
         <div class="relative flex pt-40 container max-w-[1380px] mx-auto">
             <div class="">
