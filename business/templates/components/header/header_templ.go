@@ -27,7 +27,7 @@ func Header(links []breadcrumb.Link) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header class=\"flex justify-between items-center w-full py-4 md:py-8 sticky top-0 backdrop-blur z-40\"><div class=\"flex items-center text-white\"><a class=\"opacity-80 hover:opacity-100\" href=\"/\"><img src=\"/static/images/pilot-bust.svg\" class=\"w-16 h-10 opacity-70\"></a><div class=\"ml-10\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header class=\"flex px-6 justify-between items-center w-full py-4 md:py-8 sticky top-0 backdrop-blur z-40 text-sm md:text-base\"><div class=\"flex items-center text-white\"><a class=\"opacity-80 hover:opacity-100\" href=\"/\"><img src=\"/static/images/pilot-bust.svg\" class=\"w-10 h-10 md:w-16 md:h-10 opacity-70\"></a><div class=\"ml-4 md:ml-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

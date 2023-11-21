@@ -59,7 +59,7 @@ func Container(links []breadcrumb.Link) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"gradbg text-gray-300 font-mono\" onload=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"bg-black text-gray-300 font-mono\" onload=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -68,7 +68,7 @@ func Container(links []breadcrumb.Link) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><div class=\"px-6 md:px-12 flex flex-col\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><div class=\"md:px-12 flex flex-col\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -76,7 +76,7 @@ func Container(links []breadcrumb.Link) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<main class=\"flex-1 min-h-[calc(100vh-105px)] flex flex-col\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<main class=\"flex-1 min-h-[calc(100vh-105px)] flex flex-col px-6\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -97,23 +97,6 @@ func Container(links []breadcrumb.Link) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Var3 := `
-        .gradbg {
-            background: linear-gradient(-45deg, #08172E, #000000, #15253F);
-            background-size: 400% 400%;
-            animation: gradient 35s ease infinite;
-            height: 100vh;
-        }
-        @keyframes gradient {
-        	0% {
-        		background-position: 0% 50%;
-        	}
-        	50% {
-        		background-position: 100% 50%;
-        	}
-        	100% {
-        		background-position: 0% 50%;
-        	}
-        }
         html {
         	scroll-behavior: smooth;
         }

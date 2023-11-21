@@ -6,56 +6,20 @@ import (
 
 )
 
-templ goIcon() {
-    <div>
-        <svg class="w-[400px] absolute inset-0 top-[-147px] left-[-137px]" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 254.5 225" style="enable-background:new 0 0 254.5 225;" xml:space="preserve">
-        <style type="text/css">
-            .st4{fill:#00ACD7;}
-        </style>
-        <g>
-            <g>
-                <g>
-                     <g>
-                         <path class="st4" d="M40.2,101.1c-0.4,0-0.5-0.2-0.3-0.5l2.1-2.7c0.2-0.3,0.7-0.5,1.1-0.5l35.7,0c0.4,0,0.5,0.3,0.3,0.6
-                             l-1.7,2.6c-0.2,0.3-0.7,0.6-1,0.6L40.2,101.1z"/>
-                     </g>
-                </g>
-            </g>
-            <g>
-                <g>
-                     <g>
-                         <path class="st4" d="M25.1,110.3c-0.4,0-0.5-0.2-0.3-0.5l2.1-2.7c0.2-0.3,0.7-0.5,1.1-0.5l45.6,0c0.4,0,0.6,0.3,0.5,0.6
-                             l-0.8,2.4c-0.1,0.4-0.5,0.6-0.9,0.6L25.1,110.3z"/>
-                     </g>
-                </g>
-            </g>
-            <g>
-                <g>
-                     <g>
-                         <path class="st4" d="M49.3,119.5c-0.4,0-0.5-0.3-0.3-0.6l1.4-2.5c0.2-0.3,0.6-0.6,1-0.6l20,0c0.4,0,0.6,0.3,0.6,0.7l-0.2,2.4
-                             c0,0.4-0.4,0.7-0.7,0.7L49.3,119.5z"/>
-                     </g>
-                </g>
-            </g>
-        </g>
-        </svg>
-    </div>
-}
-
 templ Home(links []breadcrumb.Link) {
    @container.Container(links) {
-        <div class="flex-1 flex flex-col justify-center items-center">
-            <div class="pt-0 w-[600px] relative">
-                @goIcon()
-                <h1 class="font-bold text-5xl mb-2 text-go">Soheil</h1>
-                <h2 class="font-xl"><span class="text-go font-bold">Go</span> Web Developer</h2>
-                <p class="pt-16 text-justify">
-                    Software Engineer with 2+ years of experience building frontends and transitioning to backend development with Go.
-                    Skilled in designing and implementing scalable web services and APIs.
-                    Passionate about Go's performance, simplicity, and concurrency model for building reliable software.
-                    Seeking roles as a Golang developer to utilize strengths in problem-solving, learning new technologies quickly, and delivering maintainable code.
-                </p>
+        <div class="flex-1 flex flex-col justify-end items-center">
+            <div class="max-w-[550px] flex flex-col items-center py-4 md:py-32">
+                <div class="mt-10">
+                    <h1 class="font-bold text-5xl mb-2 text-go">LOREMI IPSUMI</h1>
+                    <h2 class="font-xl"><span class="text-go font-bold">GO</span> WEB DEVELOPER</h2>
+                    <p class="pt-8 md:pt-12 md:text-justify font-rubik font-light text-lg">
+                        Software Engineer with 2+ years of experience building frontends and transitioning to backend development with Go.
+                        Skilled in designing and implementing scalable web services and APIs.
+                        Passionate about Go's performance, simplicity, and concurrency model for building reliable software.
+                        Seeking roles as a Golang developer to utilize strengths in problem-solving, learning new technologies quickly, and delivering maintainable code.
+                    </p>
+                </div>
             </div>
         </div>
    }

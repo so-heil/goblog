@@ -12,11 +12,11 @@ templ Article(links []breadcrumb.Link, article articles.Article, content []templ
     @container.Container(links) {
         <div class="relative flex pt-40 container max-w-[1380px] mx-auto">
             <div class="">
-                <div class="sticky top-28 w-[280px] mr-14">
+                <div class="sticky top-28 w-[260px] mr-10 hidden lg:block">
                     @toc.TOC(headings)
                 </div>
             </div>
-            <div class=" pb-40 flex">
+            <div class="pb-40 flex">
                 <div>
                     <h1 class="text-5xl text-white text-go">
                         {strings.ToUpper(article.Title)}
@@ -24,8 +24,11 @@ templ Article(links []breadcrumb.Link, article articles.Article, content []templ
                     <div class="text-gray-400 mt-3">
                         {article.WrittenAt.Format("January 2th 2006")}
                     </div>
+                    <div class="w-full lg:hidden mt-28">
+                        @toc.TOC(headings)
+                    </div>
                     <div class="flex relative w-full">
-                        <article class="mt-32 font-rubik font-light text-xl prose lg:prose-xl prose-slate prose-invert">
+                        <article class="mt-4 md:mt-32 font-rubik font-light text-xl prose lg:prose-xl prose-slate prose-invert">
                            for _, component := range content {
                                 @component
                            }

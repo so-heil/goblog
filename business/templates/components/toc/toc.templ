@@ -3,12 +3,13 @@ package toc
 import "fmt"
 
 templ TOC(headings []string) {
-    <div>
+    <div class="border border-go rounded-lg p-4 md:p-0 md:border-none border-opacity-50">
+        <div class="text-xl text-white">CONTENT</div>
         <div class="rounded-lg font-rubik">
             <nav id="toc" class="mt-4">
                 <ul>
                     for _, h := range headings {
-                        <li class="pl-2 font-light">
+                        <li class="md:pl-2 font-light">
                             <a href={templ.SafeURL(fmt.Sprintf("#%s", ElementID(h)))}>{h}</a>
                         </li>
                     }
@@ -16,10 +17,12 @@ templ TOC(headings []string) {
             </nav>
         </div>
         <style>
-            .active-toc-item {
-                transition: all 150ms;
-                color: white;
-                border-left: 2px solid white;
+            @media only screen and (min-width: 1024px) {
+                .active-toc-item {
+                    transition: all 150ms;
+                    color: white;
+                    border-left: 2px solid white;
+                }
             }
         </style>
     </div>

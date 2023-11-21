@@ -37,7 +37,7 @@ func Article(links []breadcrumb.Link, article articles.Article, content []templ.
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"relative flex pt-40 container max-w-[1380px] mx-auto\"><div class=\"\"><div class=\"sticky top-28 w-[280px] mr-14\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"relative flex pt-40 container max-w-[1380px] mx-auto\"><div class=\"\"><div class=\"sticky top-28 w-[260px] mr-10 hidden lg:block\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -45,7 +45,7 @@ func Article(links []breadcrumb.Link, article articles.Article, content []templ.
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\" pb-40 flex\"><div><h1 class=\"text-5xl text-white text-go\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"pb-40 flex\"><div><h1 class=\"text-5xl text-white text-go\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -63,7 +63,15 @@ func Article(links []breadcrumb.Link, article articles.Article, content []templ.
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"flex relative w-full\"><article class=\"mt-32 font-rubik font-light text-xl prose lg:prose-xl prose-slate prose-invert\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"w-full lg:hidden mt-28\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = toc.TOC(headings).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"flex relative w-full\"><article class=\"mt-4 md:mt-32 font-rubik font-light text-xl prose lg:prose-xl prose-slate prose-invert\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

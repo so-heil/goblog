@@ -10,7 +10,6 @@ import (
 	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
 	"github.com/so-heil/goblog/business/templates/pages/blog"
 	"log"
-	"strings"
 	"time"
 )
 
@@ -107,7 +106,7 @@ func (s *Storage) updateArticlePage(article articles.Article, rc chan<- result) 
 		Title: "BLOG",
 		Href:  "/blog",
 	}, {
-		Title: strings.ToUpper(article.Title),
+		Title: "ARTICLE",
 		Href:  fmt.Sprintf("/blog/%s", article.Slug),
 	}}, article, components, headings)
 
