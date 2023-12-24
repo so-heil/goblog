@@ -27,7 +27,7 @@ func Header(links []breadcrumb.Link) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header class=\"flex px-6 justify-between items-center w-full py-4 md:py-8 sticky top-0 backdrop-blur z-40 text-sm md:text-base\"><div class=\"flex items-center text-white\"><a class=\"opacity-80 hover:opacity-100\" href=\"/\"><img src=\"/static/images/pilot-bust.svg\" class=\"w-10 h-10 md:w-16 md:h-10 opacity-70\"></a><div class=\"ml-4 md:ml-8\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header class=\"flex md:px-12 px-6 justify-between items-center w-full py-4 md:py-8 sticky top-0 backdrop-blur z-40 text-sm md:text-base\"><div class=\"flex items-center text-white\"><a class=\"opacity-80 hover:opacity-100\" href=\"/\"><img src=\"/static/images/pilot-bust.svg\" class=\"w-10 h-10 md:w-16 md:h-10 opacity-70\"></a><div class=\"ml-4 md:ml-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -35,7 +35,7 @@ func Header(links []breadcrumb.Link) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"flex align-center h-min space-x-6 md:space-x-10 \">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"flex align-center h-min space-x-6 md:space-x-8 leading-[27px]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -65,7 +65,7 @@ func Header(links []breadcrumb.Link) templ.Component {
 				}
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></header>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://github.com/so-heil\" class=\"opacity-80 transition-all hover:opacity-100\"><img src=\"/static/images/github-mark-white.svg\" class=\"w-6 h-6 transition-all\"></a></div></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
