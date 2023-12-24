@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('JetBrainsMono-Medium.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('JetBrainsMono-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Light.ttf');
+    font-weight: 300;
+}
