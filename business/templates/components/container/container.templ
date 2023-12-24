@@ -2,7 +2,6 @@ package container
 
 import (
     "github.com/so-heil/goblog/business/templates/components/header"
-    "github.com/so-heil/goblog/business/templates/components/contact"
 	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
 )
 
@@ -24,13 +23,16 @@ script traceTOC() {
     });
 }
 
-templ Container(links []breadcrumb.Link) {
+templ Container(links []breadcrumb.Link, title string) {
 	<html>
 	<head>
 		<link rel="stylesheet" href="/static/css/tailwind.css" />
 		<link rel="stylesheet" href="/static/fonts/fonts.css" />
 		<link rel="stylesheet" href="/static/prism/prism.css" />
 		<script src="/static/prism/prism.js" />
+		<link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg" />
+        <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+		<title>{title} | Soheil Ansari </title>
 	</head>
 	<body class="bg-black text-gray-300 font-mono" onload={traceTOC()}>
         <div class="md:px-12 flex flex-col">
