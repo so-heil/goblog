@@ -5,11 +5,10 @@ import (
     "github.com/so-heil/goblog/business/templates/components/toc"
 	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
     "strings"
-	"github.com/so-heil/goblog/business/articles"
 )
 
-templ Article(links []breadcrumb.Link, article articles.Article, content []templ.Component, headings []string) {
-    @container.Container(links) {
+templ ArticlePage(links []breadcrumb.Link, article Article, content []templ.Component, headings []string) {
+    @container.Container(links, article.Title) {
         <div class="relative flex pt-40 container max-w-[1380px] mx-auto">
             <div class="">
                 <div class="sticky top-28 w-[260px] mr-10 hidden lg:block">

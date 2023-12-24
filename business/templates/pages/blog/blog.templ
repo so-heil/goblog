@@ -5,11 +5,10 @@ import (
 	"github.com/so-heil/goblog/business/templates/components/breadcrumb"
     "fmt"
     "strings"
-	"github.com/so-heil/goblog/business/articles"
 )
 
-templ Blog(links []breadcrumb.Link, artcls []articles.Article) {
-    @container.Container(links) {
+templ BlogPage(links []breadcrumb.Link, artcls []Article) {
+    @container.Container(links, "Blog") {
         <div class="container max-w-[1180px] mx-auto py-40">
             <h1 class="text-5xl text-white">
                 ARTICLES
