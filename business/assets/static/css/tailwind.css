@@ -1284,6 +1284,10 @@ video {
   justify-content: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -1389,6 +1393,10 @@ video {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-\[73px\] {
+  font-size: 73px;
 }
 
 .text-lg {
@@ -1783,6 +1791,10 @@ video {
 
   .md\:text-justify {
     text-align: justify;
+  }
+
+  .md\:text-\[128px\] {
+    font-size: 128px;
   }
 
   .md\:text-base {

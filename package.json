@@ -4,8 +4,8 @@
   "description": "## Todolist",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss build -o business/frontend/assets/static/css/tailwind.css",
-    "watch": "tailwindcss build -o pkg/frontend/assets/static/css/tailwind.css --watch"
+    "build": "tailwindcss build -o business/assets/static/css/tailwind.css",
+    "watch": "tailwindcss build -o business/assets/static/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
