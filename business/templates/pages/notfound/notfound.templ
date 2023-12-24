@@ -1,0 +1,16 @@
+package notfound
+
+import (
+    "github.com/so-heil/goblog/business/templates/components/container"
+    "github.com/so-heil/goblog/business/templates/components/breadcrumb"
+
+)
+
+templ NotFoundPage() {
+   @container.Container([]breadcrumb.Link{{Title: "Page", Href: ""}}, "Page Not Found") {
+        <div class="flex-1 flex flex-col justify-center items-center">
+            <h1 class="text-[73px] md:text-[128px] text-white">404</h1>
+            <div>Sorry, We can't find that page!</div>
+        </div>
+   }
+}
