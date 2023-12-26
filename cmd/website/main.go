@@ -108,6 +108,11 @@ func (a *app) startSSG() error {
 		target = tmp
 	}
 
+	// make sure the target exists
+	if err := os.MkdirAll(target, 0777); err != nil {
+		return fmt.Errorf("mkdirall target: %w", err)
+	}
+
 	fmt.Println("starting seeding store with provider data")
 	if err := a.updateStore(); err != nil {
 		return fmt.Errorf("initial store seed: %w", err)
