@@ -112,7 +112,7 @@ func (frontend *Frontend) SSG(dir string, perm os.FileMode) error {
 	}
 
 	// add article pages to static pages
-	for slug, _ := range frontend.store.Versions() {
+	for slug := range frontend.store.Versions() {
 		if slug != pages.AboutPageID && slug != pages.BlogPageID {
 			staticPages = append(staticPages, staticPage{slug, fmt.Sprintf("blog/%s.html", slug)})
 		}

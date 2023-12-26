@@ -41,8 +41,6 @@ func run() error {
 	default:
 		return fmt.Errorf("wrong usage: usage: goblog (serve|static)")
 	}
-
-	return nil
 }
 
 type config struct {
