@@ -1,10 +1,12 @@
 package breadcrumb
 
+import "strings"
+
 templ Breadcrumb(links []Link) {
     <ul class="flex items-center space-x-3">
         for i, link := range links {
             <li>
-                <a href={templ.SafeURL(link.Href)}>{link.Title}</a>
+                <a href={templ.SafeURL(link.Href)}>{strings.ToUpper(link.Title)}</a>
             </li>
             if i != len(links) - 1 {
                 <span>/</span>
