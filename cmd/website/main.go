@@ -70,8 +70,14 @@ func newApp() (*app, error) {
 	notionClient := notion.NewClient(cfg.NotionAPIKey)
 	provider := notionprovider.NewProvider(notionClient, cfg.NotionArticleDatabaseID)
 
-	options := badger.DefaultOptions(cfg.BadgerDBPath)
-	options.InMemory = cfg.DBInMemory
+	var options badger.Options
+	if cfg.DBInMemory {
+		options = badger.DefaultOptions("")
+		options.InMemory = true
+	} else {
+		options = badger.DefaultOptions(cfg.BadgerDBPath)
+	}
+
 	db, err := badger.Open(options)
 	if err != nil {
 		return nil, fmt.Errorf("startup: open badger db: %w", err)
