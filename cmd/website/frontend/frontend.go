@@ -11,16 +11,17 @@ import (
 )
 
 type Frontend struct {
-	store pages.Store
+	store      pages.Store
+	assetFiles *assets.Assets
 }
 
-func New(storer pages.Store) *Frontend {
-	return &Frontend{store: storer}
+func New(storer pages.Store, assetFiles *assets.Assets) *Frontend {
+	return &Frontend{store: storer, assetFiles: assetFiles}
 }
 
 // Routes registers paths to mux
 func (frontend *Frontend) Routes(mux *http.ServeMux) {
-	mux.Handle("/static/", assets.StaticHandler)
+	mux.Handle("/static/", frontend.assetFiles)
 	mux.HandleFunc("/about", frontend.aboutPage)
 	mux.HandleFunc("/blog", frontend.blogPage)
 	mux.HandleFunc("/blog/", frontend.articlePage)
