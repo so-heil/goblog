@@ -30,7 +30,9 @@ jobs:
             SSG_PATH: _site
             NOTION_API_KEY: ${{ secrets.notionAPIKey }}
             NOTION_ARTICLE_DATABASE_ID: ${{ secrets.notionArticleDatabaseID }}
-          run: make static
+          run: | 
+            make install-dependencies
+            make static
         - name: Upload artifact
           uses: actions/upload-pages-artifact@v2
           
