@@ -16,6 +16,6 @@ var navs = []Nav{
 	},
 	{
 		Title: "CV",
-		Href:  "/cv",
+		Href:  "/static/cv.pdf",
 	},
 }
