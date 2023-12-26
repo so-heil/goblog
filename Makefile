@@ -1,5 +1,4 @@
 install-dependencies:
-	go install github.com/a-h/templ/cmd/templ@latest
 	npm install
 	go mod tidy
 
@@ -20,7 +19,7 @@ test:
 
 build: build-templ build-tailwind build-webserver
 
-static: build-templ build-tailwind build-static
+static: build-tailwind build-static
 
 dev:
 	air -c .air.toml
