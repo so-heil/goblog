@@ -1,7 +1,5 @@
 install-dependencies:
 	go install github.com/a-h/templ/cmd/templ@latest
-	apt install nodejs
-	apt install npm
 	npm install
 	go mod tidy
 

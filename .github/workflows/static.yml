@@ -24,6 +24,10 @@ jobs:
           uses: actions/checkout@v4
         - name: Setup Pages
           uses: actions/configure-pages@v4
+        - name: Install node and npm
+          uses: actions/setup-node@v4
+          with:
+            node-version: 18
         - name: Build static pages
           env:
             DB_IN_MEMORY: true
