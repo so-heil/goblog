@@ -80,7 +80,32 @@ func ArticlePage(links []breadcrumb.Link, article Article, content []templ.Compo
 					return templ_7745c5c3_Err
 				}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</article></div></div></div></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</article></div></div></div><script>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Var5 := `
+                    const observer = new IntersectionObserver(entries => {
+                         entries.forEach(entry => {
+                             const id = entry.target.getAttribute('id');
+                             if (entry.intersectionRatio > 0) {
+                                 document.querySelector(` + "`" + `#toc > ul > li > a[href="#${id}"]` + "`" + `).parentElement.classList.add('active-toc-item');
+                             } else {
+                                 document.querySelector(` + "`" + `#toc > ul > li > a[href="#${id}"]` + "`" + `).parentElement.classList.remove('active-toc-item');
+                             }
+                         });
+                    });
+
+                    // Track all sections that have an ` + "`" + `id` + "`" + ` applied
+                    document.querySelectorAll('section[id]').forEach((section) => {
+                         observer.observe(section);
+                    });
+            `
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</script></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
