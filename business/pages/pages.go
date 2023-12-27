@@ -83,10 +83,7 @@ func (ap *ArticlePage) Render() (templ.Component, error) {
 	}
 
 	page := blog.ArticlePage([]breadcrumb.Link{{
-		Title: "Blog",
-		Href:  "/blog",
-	}, {
-		Title: "Article",
+		Title: ap.article.Title,
 		Href:  fmt.Sprintf("/blog/%s", ap.article.Slug),
 	}}, toBlogArticle(ap.article), components, headings)
 
