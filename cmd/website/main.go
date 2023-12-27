@@ -105,8 +105,8 @@ func (a *app) updateStore() error {
 func (a *app) startSSG() error {
 	target := a.cfg.SSGPath
 
-	fmt.Println("SSGPath is not configured, creating a temp dir as SSG target")
 	if target == "" {
+		fmt.Println("SSGPath is not configured, creating a temp dir as SSG target")
 		tmp, err := os.MkdirTemp("", "ssg")
 		if err != nil {
 			return fmt.Errorf("mkdir temp: %w", err)
