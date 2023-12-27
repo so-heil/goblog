@@ -51,7 +51,7 @@ type config struct {
 	SeedInterval            time.Duration `env:"UPDATE_INTERVAL" envDefault:"60s"`
 	ListenAddress           string        `env:"LISTEN_ADDRESS" envDefault:":3000"`
 	DBInMemory              bool          `env:"DB_IN_MEMORY" envDefault:"false"`
-	SSGPath                 string        `env:"SSG_PATH" envDefault:""`
+	SSGPath                 string        `env:"SSG_PATH" envDefault:"_site"`
 }
 
 type app struct {

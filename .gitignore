@@ -1,4 +1,5 @@
 node_modules
 .idea
 tmp
+_site
 business/assets/static/css/tailwind.css
