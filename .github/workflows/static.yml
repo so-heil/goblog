@@ -16,6 +16,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: golang:latest
+    steps:
+      - name: Run Tests
+        env:
+          DB_IN_MEMORY: true
+          NOTION_TEST_API_KEY: ${{ secrets.notionTestAPIKey }}
+          NOTION_TEST_DATABASE_ID: ${{ secrets.notionTestDatabaseID }}
+        run: |
+          make install-dependencies
+          make test
+
   build:
     runs-on: ubuntu-latest
     container: golang:latest
