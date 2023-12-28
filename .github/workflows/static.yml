@@ -26,7 +26,7 @@ jobs:
           NOTION_TEST_API_KEY: ${{ secrets.notionTestAPIKey }}
           NOTION_TEST_DATABASE_ID: ${{ secrets.notionTestDatabaseID }}
         run: |
-          make install-dependencies
+          make tidy
           make test
 
   build:

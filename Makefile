@@ -1,3 +1,6 @@
+tidy:
+	go mod tidy
+
 install-dependencies:
 	npm install
 	go mod tidy
