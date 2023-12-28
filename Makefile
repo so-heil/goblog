@@ -11,15 +11,20 @@ build-tailwind:
 build-webserver:
 	go build -o ./tmp/main cmd/website/main.go
 
-build-static:
+run-webserver:
+	go run cmd/website/main.go serve
+
+run-static:
 	go run cmd/website/main.go static
 
-test:
-	go test -v business/articles/articles_test.go
+build: build-templ build-tailwind
 
-build: build-templ build-tailwind build-webserver
+start: build run-webserver
 
-static: build-tailwind build-static
+static: build-tailwind run-static
 
 dev:
 	air -c .air.toml
+
+test:
+	go test -v ./...
