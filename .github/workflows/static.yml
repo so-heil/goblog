@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     container: golang:latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run Tests
         env:
           DB_IN_MEMORY: true
