@@ -8,9 +8,9 @@ import (
 
 templ AboutPage(links []breadcrumb.Link, data About) {
    @container.Container(links, "About") {
-        <div class="flex-1 flex flex-col justify-end items-center">
-            <div class="max-w-[550px] flex flex-col items-center py-4 md:py-32">
-                <div class="mt-10">
+        <div class="container max-w-[1180px] mx-auto pt-40">
+            <div class="max-w-[650px]">
+                <div class="">
                     <h1 class="font-bold text-5xl mb-2 text-go">{data.Title}</h1>
                     <h2 class="font-xl">{data.SubTitle}</h2>
                     <article class="pt-8 md:pt-12 md:text-justify font-rubik font-light text-lg prose lg:prose-xl prose-slate prose-invert">

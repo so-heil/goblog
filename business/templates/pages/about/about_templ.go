@@ -34,7 +34,7 @@ func AboutPage(links []breadcrumb.Link, data About) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex-1 flex flex-col justify-end items-center\"><div class=\"max-w-[550px] flex flex-col items-center py-4 md:py-32\"><div class=\"mt-10\"><h1 class=\"font-bold text-5xl mb-2 text-go\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container max-w-[1180px] mx-auto pt-40\"><div class=\"max-w-[650px]\"><div class=\"\"><h1 class=\"font-bold text-5xl mb-2 text-go\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
