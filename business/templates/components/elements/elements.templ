@@ -39,17 +39,15 @@ templ Paragraph(ps []P) {
         for _, p := range ps {
             if p.Link != nil {
                 <a href={templ.SafeURL(*p.Link)}>{p.Content}</a>
-            }
-            if p.Bold {
-                <strong>{p.Content}</strong>
-            }
-            if p.Italic {
+            } else if p.Bold {
+               <strong>{p.Content}</strong>
+            } else if p.Italic {
                 <i>{p.Content}</i>
-            }
-            if p.Code {
+            } else if p.Code {
                 <code>{p.Content}</code>
+            } else {
+                {p.Content}
             }
-            {p.Content}
         }
     </p>
 }

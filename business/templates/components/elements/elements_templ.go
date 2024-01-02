@@ -308,12 +308,7 @@ func Paragraph(ps []P) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			if p.Bold {
+			} else if p.Bold {
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<strong>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
@@ -327,12 +322,7 @@ func Paragraph(ps []P) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			if p.Italic {
+			} else if p.Italic {
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<i>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
@@ -346,12 +336,7 @@ func Paragraph(ps []P) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			if p.Code {
+			} else if p.Code {
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<code>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
@@ -365,15 +350,12 @@ func Paragraph(ps []P) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var21 string = p.Content
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
+			} else {
+				var templ_7745c5c3_Var21 string = p.Content
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
 			}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p>")
