@@ -20,7 +20,7 @@ run-webserver:
 run-static:
 	go run cmd/website/main.go static
 
-build: build-templ build-tailwind
+build: build-templ build-tailwind build-webserver
 
 start: build run-webserver
 
